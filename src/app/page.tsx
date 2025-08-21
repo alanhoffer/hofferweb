@@ -80,29 +80,6 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Video Section */}
-      <section className="py-16 md:py-24 bg-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-headline mb-4">A Glimpse Into Our World</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            See our bees in action and learn what makes our apiary special. Watch our story.
-          </p>
-          <div className="aspect-video max-w-4xl mx-auto bg-black rounded-lg relative overflow-hidden shadow-2xl group">
-             <Image
-                src="https://placehold.co/1280x720.png"
-                alt="Video placeholder"
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint="beekeeping video"
-                className="group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Featured Products */}
       <section className="py-16 md:py-24 bg-background">
         <div className="container mx-auto px-4">
@@ -136,6 +113,29 @@ export default function Home() {
             <Button asChild variant="link" className="text-lg">
                 <Link href="/shop">Explore All Products <ArrowRight className="ml-2" /></Link>
             </Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Video Section */}
+      <section className="w-full py-16 md:py-24 bg-primary/5">
+        <div className="container mx-auto px-4 text-center">
+          <h2 className="text-3xl font-bold font-headline mb-4">A Glimpse Into Our World</h2>
+          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+            See our bees in action and learn what makes our apiary special. Watch our story.
+          </p>
+          <div className="aspect-video max-w-4xl mx-auto bg-black rounded-lg relative overflow-hidden shadow-2xl group">
+             <Image
+                src="https://placehold.co/1280x720.png"
+                alt="Video placeholder"
+                layout="fill"
+                objectFit="cover"
+                data-ai-hint="beekeeping video"
+                className="group-hover:scale-105 transition-transform duration-500"
+            />
+            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
+            </div>
           </div>
         </div>
       </section>
