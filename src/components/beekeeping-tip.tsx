@@ -2,8 +2,6 @@ import { generateBeekeepingTip } from '@/ai/flows/generate-beekeeping-tip';
 import { BeekeepingTipClient } from './beekeeping-tip-client';
 
 export default async function BeekeepingTip({ section, topic }: { section: string; topic: string }) {
-  const initialTipData = await generateBeekeepingTip({ section, topic, style: 'informative' });
-  const initialTip = initialTipData.tip;
 
   async function getNewTipAction() {
     'use server';
@@ -16,5 +14,5 @@ export default async function BeekeepingTip({ section, topic }: { section: strin
     }
   }
   
-  return <BeekeepingTipClient initialTip={initialTip} getNewTip={getNewTipAction} />;
+  return <BeekeepingTipClient getNewTip={getNewTipAction} />;
 }

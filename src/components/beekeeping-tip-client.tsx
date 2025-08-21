@@ -1,12 +1,12 @@
 'use client';
 
-import { useState, useTransition } from 'react';
+import { useEffect, useState, useTransition } from 'react';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Lightbulb, RefreshCw } from 'lucide-react';
 
-export function BeekeepingTipClient({ initialTip, getNewTip }: { initialTip: string, getNewTip: () => Promise<string> }) {
-  const [tip, setTip] = useState(initialTip);
+export function BeekeepingTipClient({ getNewTip }: { getNewTip: () => Promise<string> }) {
+  const [tip, setTip] = useState('Loading your bee tip...');
   const [isPending, startTransition] = useTransition();
 
   const handleRefresh = () => {
@@ -15,6 +15,10 @@ export function BeekeepingTipClient({ initialTip, getNewTip }: { initialTip: str
       setTip(newTip);
     });
   };
+
+  useEffect(() => {
+    handleRefresh();
+  }, []);
 
   return (
     <Card className="bg-primary/5 border-primary/20 shadow-lg">
