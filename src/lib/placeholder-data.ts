@@ -9,7 +9,37 @@ export const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export const allProducts = [
+export type Product = {
+    id: string;
+    name: string;
+    price: string;
+    priceValue: number;
+    image: string;
+    category: string;
+    hint: string;
+    description: string;
+    features: string[];
+    reviews: {
+        rating: number;
+        author: string;
+        text: string;
+        date: string;
+    }[];
+    stock: 'in_stock' | 'low_stock' | 'out_of_stock';
+};
+
+export type Course = {
+    id: string;
+    title: string;
+    price: string;
+    level: 'Beginner' | 'Intermediate' | 'Advanced';
+    image: string;
+    description: string;
+    hint: string;
+    curriculum: string[];
+};
+
+export const allProducts: Product[] = [
     {
         id: 'prod_1',
         name: 'Raw Wildflower Honey',
@@ -172,7 +202,7 @@ export const testimonials = [
   },
 ];
 
-export const allCourses = [
+export const allCourses: Course[] = [
   {
     id: 'course_1',
     title: 'Beekeeping for Beginners',
