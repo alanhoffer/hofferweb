@@ -1,6 +1,30 @@
 import Image from 'next/image';
-import { Beehive, Target, Users } from 'lucide-react';
+import { Target, Users } from 'lucide-react';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+
+function BeehiveIcon(props: React.SVGProps<SVGSVGElement>) {
+  return (
+    <svg
+      {...props}
+      xmlns="http://www.w3.org/2000/svg"
+      width="24"
+      height="24"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      strokeWidth="2"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    >
+      <path d="M12 2l8 4.5v9l-8 4.5-8-4.5v-9L12 2z"></path>
+      <path d="M12 22v-9"></path>
+      <path d="M4 6.5l8 4.5 8-4.5"></path>
+      <path d="M4 15.5l8-4.5 8 4.5"></path>
+      <path d="M12 2v4.5"></path>
+    </svg>
+  );
+}
+
 
 export default function AboutPage() {
   return (
@@ -40,7 +64,7 @@ export default function AboutPage() {
         <div className="grid md:grid-cols-3 gap-8 text-center">
           <Card>
             <CardHeader>
-              <Beehive className="h-12 w-12 mx-auto text-primary" />
+              <BeehiveIcon className="h-12 w-12 mx-auto text-primary" />
               <CardTitle className="mt-4">Our Apiary</CardTitle>
             </CardHeader>
             <CardContent>
