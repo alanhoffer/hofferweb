@@ -28,6 +28,14 @@ export type Product = {
     stock: 'in_stock' | 'low_stock' | 'out_of_stock';
 };
 
+export type QuizQuestion = {
+    type: 'quiz';
+    title: string;
+    question: string;
+    options: string[];
+    correctAnswer: number;
+};
+
 export type Course = {
     id: string;
     title: string;
@@ -36,7 +44,7 @@ export type Course = {
     image: string;
     description: string;
     hint: string;
-    curriculum: string[];
+    curriculum: (string | QuizQuestion)[];
 };
 
 export const allProducts: Product[] = [
@@ -211,7 +219,26 @@ export const allCourses: Course[] = [
     image: 'https://placehold.co/600x400.png',
     description: 'Learn the fundamentals of beekeeping, from setting up your first hive to your first honey harvest. Perfect for aspiring apiarists.',
     hint: 'beekeeper holding frame',
-    curriculum: ['Introduction to Bees and Beekeeping', 'Hive Components and Equipment', 'Installing Your First Bee Package', 'Hive Inspections and Management', 'Honey Harvesting and Extraction', 'Common Pests and Diseases']
+    curriculum: [
+        'Introduction to Bees and Beekeeping',
+        'Hive Components and Equipment',
+        {
+            type: 'quiz',
+            title: 'Knowledge Check: Equipment',
+            question: 'What is the primary purpose of a bee smoker?',
+            options: [
+                'To feed the bees sugar water.',
+                'To calm the bees by masking alarm pheromones.',
+                'To warm the hive in winter.',
+                'To harvest honey from the frames.'
+            ],
+            correctAnswer: 1
+        },
+        'Installing Your First Bee Package',
+        'Hive Inspections and Management',
+        'Honey Harvesting and Extraction',
+        'Common Pests and Diseases'
+    ]
   },
   {
     id: 'course_2',
