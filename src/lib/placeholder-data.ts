@@ -4,6 +4,7 @@ export const navLinks = [
   { href: '/', label: 'Home' },
   { href: '/shop', label: 'Shop' },
   { href: '/courses', label: 'Courses' },
+  { href: '/smart-tools', label: 'Smart Tools' },
   { href: '/blog', label: 'Blog' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
