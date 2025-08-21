@@ -44,7 +44,7 @@ export default function MyCoursesPage() {
             </CardContent>
             <CardFooter className="p-4 bg-muted/50 flex justify-between">
               <Button asChild>
-                <Link href={`/courses/${course.id}`}>
+                <Link href={`/courses/${course.id}/learn`}>
                   <PlayCircle className="mr-2 h-4 w-4" />
                   Continue Learning
                 </Link>
