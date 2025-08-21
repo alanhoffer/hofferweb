@@ -9,75 +9,147 @@ export const navLinks = [
   { href: '/contact', label: 'Contact' },
 ];
 
-export const featuredProducts = [
-  {
-    id: 'prod_1',
-    name: 'Raw Wildflower Honey',
-    price: '$15.99',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Honey',
-    hint: 'honey jar',
-    description: 'Pure, unfiltered wildflower honey straight from our hives. A taste of nature\'s finest.',
-  },
-  {
-    id: 'prod_2',
-    name: 'Italian Mated Queen Bee',
-    price: '$45.00',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Live Bees',
-    hint: 'queen bee',
-    description: 'A young, mated Italian queen bee, known for her prolific laying and gentle temperament. Ready to lead your colony.',
-  },
-  {
-    id: 'prod_3',
-    name: 'Beekeeping Starter Kit',
-    price: '$129.99',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Equipment',
-    hint: 'beekeeping equipment',
-    description: 'Everything you need to start your beekeeping journey. Includes a 10-frame Langstroth hive, veil, gloves, hive tool, and smoker.',
-  },
+export const allProducts = [
+    {
+        id: 'prod_1',
+        name: 'Raw Wildflower Honey',
+        price: '$15.99',
+        priceValue: 15.99,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Honey',
+        hint: 'honey jar',
+        description: 'Pure, unfiltered wildflower honey straight from our hives. A taste of nature\'s finest, with complex floral notes and a rich amber color. Perfect for toast, tea, or any recipe that needs a touch of natural sweetness.',
+        features: [
+            "100% Raw & Unfiltered",
+            "Sustainably Harvested",
+            "From Wildflower Blossoms",
+            "16oz (1lb) Jar"
+        ],
+        reviews: [
+            { rating: 5, author: "Emily R.", text: "Absolutely the best honey I've ever tasted. You can really taste the difference.", date: "2024-06-15" },
+            { rating: 4, author: "John S.", text: "Great flavor and consistency. A bit pricey but worth it for the quality.", date: "2024-06-10" }
+        ],
+        stock: 'in_stock'
+    },
+    {
+        id: 'prod_2',
+        name: 'Italian Mated Queen Bee',
+        price: '$45.00',
+        priceValue: 45.00,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Live Bees',
+        hint: 'queen bee',
+        description: 'A young, professionally mated Italian queen bee, marked for easy identification. Known for her prolific laying pattern and gentle temperament, she is ready to lead your colony to success.',
+        features: [
+            "Marked Italian Queen (Apis mellifera ligustica)",
+            "Excellent Brood Production",
+            "Gentle & Calm Temperament",
+            "Shipped Safely in a Queen Cage with Attendants"
+        ],
+        reviews: [
+            { rating: 5, author: "Beekeeper Bill", text: "My new queen arrived healthy and was accepted by the hive immediately. She's a fantastic layer!", date: "2024-05-20" }
+        ],
+        stock: 'in_stock'
+    },
+    {
+        id: 'prod_3',
+        name: 'Beekeeping Starter Kit',
+        price: '$129.99',
+        priceValue: 129.99,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Equipment',
+        hint: 'beekeeping equipment',
+        description: 'Everything you need to start your beekeeping journey. Includes a standard 10-frame Langstroth hive, protective gear, and essential tools. Just add bees!',
+        features: [
+            "10-Frame Langstroth Hive (Unassembled)",
+            "Veil with Helmet",
+            "Goatskin Gloves",
+            "Hive Tool & Bee Brush",
+            "Stainless Steel Smoker"
+        ],
+        reviews: [
+             { rating: 5, author: "Sarah K.", text: "This kit had everything. Made getting started so much less intimidating. Great value.", date: "2024-06-01" },
+             { rating: 4, author: "Mike T.", text: "Solid kit for the price. Assembling the hive was a fun project.", date: "2024-05-25" }
+        ],
+        stock: 'in_stock'
+    },
+    {
+        id: 'prod_4',
+        name: 'Clover Honey',
+        price: '$12.99',
+        priceValue: 12.99,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Honey',
+        hint: 'honey jar',
+        description: 'Classic, light, and sweet clover honey. A versatile favorite for tea, baking, or just by the spoonful.',
+        features: [
+            "100% Pure Clover Honey",
+            "Mild, Sweet Flavor",
+            "Perfect for Everyday Use",
+            "16oz (1lb) Jar"
+        ],
+        reviews: [],
+        stock: 'in_stock'
+    },
+    {
+        id: 'prod_5',
+        name: 'Carniolan Mated Queen Bee',
+        price: '$48.00',
+        priceValue: 48.00,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Live Bees',
+        hint: 'queen bee',
+        description: 'A young, mated Carniolan queen bee, known for her winter hardiness and explosive spring buildup.',
+        features: [
+            "Marked Carniolan Queen (Apis mellifera carnica)",
+            "Excellent Overwintering Capabilities",
+            "Rapid Spring Buildup",
+            "Shipped Safely in a Queen Cage with Attendants"
+        ],
+        reviews: [
+            { rating: 5, author: "Northern Beekeeper", text: "My go-to queens for my climate. Always strong and healthy.", date: "2024-04-30" }
+        ],
+        stock: 'low_stock'
+    },
+    {
+        id: 'prod_6',
+        name: '10-Frame Langstroth Hive',
+        price: '$89.99',
+        priceValue: 89.99,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Equipment',
+        hint: 'beehive',
+        description: 'A complete 10-frame Langstroth hive, including bottom board, deep hive body, frames, inner cover, and telescoping outer cover.',
+        features: [
+            "Solid Pine Construction",
+            "Includes 1 Deep Hive Body",
+            "10 Frames with Foundation",
+            "Easy to Assemble"
+        ],
+        reviews: [],
+        stock: 'out_of_stock'
+    },
+    {
+        id: 'prod_7',
+        name: 'Smoker with Shield',
+        price: '$25.50',
+        priceValue: 25.50,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Equipment',
+        hint: 'bee smoker',
+        description: 'A durable stainless steel smoker with a protective heat shield to keep you safe during hive inspections.',
+        features: [
+            "Stainless Steel Body",
+            "Built-in Heat Shield",
+            "Perforated Base Plate for Airflow",
+            "Leather Bellows"
+        ],
+        reviews: [],
+        stock: 'in_stock'
+    },
 ];
 
-export const allProducts = [
-  ...featuredProducts,
-  {
-    id: 'prod_4',
-    name: 'Clover Honey',
-    price: '$12.99',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Honey',
-    hint: 'honey jar',
-    description: 'Classic, light, and sweet clover honey. A versatile favorite for tea, baking, or just by the spoonful.',
-  },
-  {
-    id: 'prod_5',
-    name: 'Carniolan Mated Queen Bee',
-    price: '$48.00',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Live Bees',
-    hint: 'queen bee',
-    description: 'A young, mated Carniolan queen bee, known for her winter hardiness and explosive spring buildup.',
-  },
-  {
-    id: 'prod_6',
-    name: '10-Frame Langstroth Hive',
-    price: '$89.99',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Equipment',
-    hint: 'beehive',
-    description: 'A complete 10-frame Langstroth hive, including bottom board, deep hive body, frames, inner cover, and telescoping outer cover.',
-  },
-   {
-    id: 'prod_7',
-    name: 'Smoker with Shield',
-    price: '$25.50',
-    image: 'https://placehold.co/600x600.png',
-    category: 'Equipment',
-    hint: 'bee smoker',
-    description: 'A durable stainless steel smoker with a protective heat shield to keep you safe during hive inspections.',
-  },
-];
+export const featuredProducts = allProducts.slice(0, 3);
 
 export const testimonials = [
   {
@@ -179,21 +251,28 @@ export const orders = [
         date: '2024-05-20',
         status: 'Delivered',
         total: '$60.99',
-        items: ['Raw Wildflower Honey', 'Smoker with Shield']
+        items: [
+            { ...allProducts[0], quantity: 1 },
+            { ...allProducts[6], quantity: 1 }
+        ]
     },
     {
         id: 'ORD-002',
         date: '2024-05-28',
         status: 'Shipped',
         total: '$45.00',
-        items: ['Italian Mated Queen Bee']
+        items: [
+            { ...allProducts[1], quantity: 1 }
+        ]
     },
     {
         id: 'ORD-003',
         date: '2024-06-01',
         status: 'Processing',
         total: '$129.99',
-        items: ['Beekeeping Starter Kit']
+        items: [
+            { ...allProducts[2], quantity: 1 }
+        ]
     }
 ];
 

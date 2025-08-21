@@ -8,9 +8,12 @@ import { Sheet, SheetContent, SheetTrigger } from './ui/sheet';
 import Logo from './logo';
 import { navLinks } from '@/lib/placeholder-data';
 import { cn } from '@/lib/utils';
+import { Badge } from './ui/badge';
 
 export default function Header() {
   const pathname = usePathname();
+  // Placeholder for cart item count
+  const cartItemCount = 3;
 
   return (
     <header className="sticky top-0 z-50 w-full border-b bg-card shadow-sm">
@@ -38,9 +41,14 @@ export default function Header() {
               <span className="sr-only">My Account</span>
             </Link>
           </Button>
-          <Button variant="ghost" size="icon">
-            <ShoppingCart className="h-5 w-5" />
-            <span className="sr-only">Shopping Cart</span>
+          <Button variant="ghost" size="icon" asChild className="relative">
+            <Link href="/cart">
+              <ShoppingCart className="h-5 w-5" />
+              {cartItemCount > 0 && (
+                <Badge className="absolute -right-2 -top-2 h-5 w-5 justify-center p-0">{cartItemCount}</Badge>
+              )}
+              <span className="sr-only">Shopping Cart</span>
+            </Link>
           </Button>
           <Button asChild>
             <Link href="/login">Login</Link>
@@ -79,10 +87,13 @@ export default function Header() {
                       My Account
                     </Link>
                   </Button>
-                   <Button variant="outline" asChild className="w-full">
-                    <Link href="#">
+                   <Button variant="outline" asChild className="w-full relative">
+                    <Link href="/cart">
                       <ShoppingCart className="mr-2 h-5 w-5" />
                       Shopping Cart
+                      {cartItemCount > 0 && (
+                         <Badge className="absolute right-2 top-1/2 -translate-y-1/2 h-5 w-5 justify-center p-0">{cartItemCount}</Badge>
+                      )}
                     </Link>
                   </Button>
                   <Button asChild className="w-full">

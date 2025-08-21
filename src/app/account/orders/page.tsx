@@ -1,3 +1,5 @@
+import Image from "next/image";
+import Link from 'next/link';
 import {
   Card,
   CardContent,
@@ -6,15 +8,12 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import {
-  Table,
-  TableBody,
-  TableCell,
-  TableHead,
-  TableHeader,
-  TableRow,
-} from '@/components/ui/table';
+  Accordion,
+  AccordionContent,
+  AccordionItem,
+  AccordionTrigger,
+} from "@/components/ui/accordion"
 import { Badge } from '@/components/ui/badge';
-import { Button } from '@/components/ui/button';
 import { orders } from '@/lib/placeholder-data';
 import { Separator } from '@/components/ui/separator';
 
@@ -45,34 +44,36 @@ export default function MyOrdersPage() {
           <CardDescription>A list of your past purchases from BeeCommerce.</CardDescription>
         </CardHeader>
         <CardContent>
-          <Table>
-            <TableHeader>
-              <TableRow>
-                <TableHead className="w-[100px]">Order ID</TableHead>
-                <TableHead>Date</TableHead>
-                <TableHead>Status</TableHead>
-                <TableHead>Items</TableHead>
-                <TableHead className="text-right">Total</TableHead>
-                <TableHead><span className="sr-only">Actions</span></TableHead>
-              </TableRow>
-            </TableHeader>
-            <TableBody>
-              {orders.map((order) => (
-                <TableRow key={order.id}>
-                  <TableCell className="font-medium">{order.id}</TableCell>
-                  <TableCell>{order.date}</TableCell>
-                  <TableCell>
+          <Accordion type="single" collapsible className="w-full">
+            {orders.map((order) => (
+              <AccordionItem value={order.id} key={order.id}>
+                <AccordionTrigger>
+                  <div className="flex justify-between w-full pr-4 text-sm">
+                    <span className="font-medium">{order.id}</span>
+                    <span>{order.date}</span>
                     <Badge variant={getStatusVariant(order.status)}>{order.status}</Badge>
-                  </TableCell>
-                  <TableCell className="text-muted-foreground text-xs">{order.items.join(', ')}</TableCell>
-                  <TableCell className="text-right">{order.total}</TableCell>
-                  <TableCell className="text-right">
-                    <Button variant="outline" size="sm">View Details</Button>
-                  </TableCell>
-                </TableRow>
-              ))}
-            </TableBody>
-          </Table>
+                    <span className="font-semibold">{order.total}</span>
+                  </div>
+                </AccordionTrigger>
+                <AccordionContent>
+                  <ul className="space-y-4 py-4">
+                    {order.items.map(item => (
+                       <li key={item.id} className="flex items-center justify-between">
+                         <div className="flex items-center gap-4">
+                           <Image src={item.image} alt={item.name} width={64} height={64} className="rounded-md object-cover" />
+                           <div>
+                            <Link href={`/shop/${item.id}`} className="font-medium hover:underline">{item.name}</Link>
+                            <p className="text-sm text-muted-foreground">Qty: {item.quantity}</p>
+                           </div>
+                         </div>
+                         <p className="font-medium">{(item.priceValue * item.quantity).toLocaleString('en-US', { style: 'currency', currency: 'USD' })}</p>
+                       </li>
+                    ))}
+                  </ul>
+                </AccordionContent>
+              </AccordionItem>
+            ))}
+          </Accordion>
         </CardContent>
       </Card>
     </div>
