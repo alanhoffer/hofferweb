@@ -15,8 +15,10 @@ import {
   CardTitle,
 } from '@/components/ui/card';
 import { Avatar, AvatarFallback, AvatarImage } from '@/components/ui/avatar';
-import { featuredProducts, testimonials } from '@/lib/placeholder-data';
+import { featuredProducts, testimonials, blogPosts, allCourses, allProducts } from '@/lib/placeholder-data';
 import BeekeepingTip from '@/components/beekeeping-tip';
+import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
+import { Badge } from '@/components/ui/badge';
 
 function BeeIcon(props: React.SVGProps<SVGSVGElement>) {
   return (
@@ -48,36 +50,84 @@ function BeeIcon(props: React.SVGProps<SVGSVGElement>) {
 }
 
 export default function Home() {
+  const latestPost = blogPosts[0];
+  const latestCourse = allCourses[0];
+  const latestProduct = allProducts[0];
+
+  const carouselItems = [
+    {
+      type: 'Product',
+      title: latestProduct.name,
+      description: latestProduct.description,
+      image: latestProduct.image,
+      hint: latestProduct.hint,
+      href: `/shop/${latestProduct.id}`,
+      buttonText: 'View Product',
+    },
+    {
+      type: 'Course',
+      title: latestCourse.title,
+      description: latestCourse.description,
+      image: latestCourse.image,
+      hint: latestCourse.hint,
+      href: `/courses/${latestCourse.id}`,
+      buttonText: 'Start Learning',
+    },
+    {
+      type: 'Blog',
+      title: latestPost.title,
+      description: latestPost.summary,
+      image: latestPost.image,
+      hint: latestPost.hint,
+      href: `/blog/${latestPost.slug}`,
+      buttonText: 'Read More',
+    },
+  ];
+
   return (
     <div className="flex flex-col">
-      {/* Hero Section */}
-      <section className="relative w-full h-[60vh] md:h-[70vh] bg-primary/20">
-        <Image
-          src="https://placehold.co/1920x1080.png"
-          alt="A vibrant apiary with bees buzzing around hives in a sunny field"
-          layout="fill"
-          objectFit="cover"
-          className="opacity-30"
-          data-ai-hint="apiary bees"
-        />
-        <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-4">
-          <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
-            Nurture the Hive, Harvest the Sweetness
-          </h1>
-          <p className="mt-4 max-w-2xl text-lg md:text-xl drop-shadow">
-            Your one-stop destination for premium beekeeping supplies, expert-led courses, and a thriving community.
-          </p>
-          <div className="mt-8 flex gap-4">
-            <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-              <Link href="/shop">
-                Shop Now <ArrowRight className="ml-2" />
-              </Link>
-            </Button>
-            <Button asChild size="lg" variant="secondary">
-              <Link href="/courses">Start Learning</Link>
-            </Button>
-          </div>
-        </div>
+      {/* Hero Carousel Section */}
+      <section className="w-full">
+        <Carousel
+          opts={{ loop: true }}
+          className="group"
+        >
+          <CarouselContent>
+            {carouselItems.map((item, index) => (
+              <CarouselItem key={index}>
+                <div className="relative w-full h-[60vh] md:h-[70vh]">
+                  <Image
+                    src={item.image}
+                    alt={item.title}
+                    layout="fill"
+                    objectFit="cover"
+                    className="opacity-40"
+                    data-ai-hint={item.hint}
+                    priority={index === 0}
+                  />
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-4 bg-black/30">
+                    <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">{item.type}</Badge>
+                    <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
+                      {item.title}
+                    </h1>
+                    <p className="mt-4 max-w-2xl text-lg md:text-xl drop-shadow">
+                      {item.description}
+                    </p>
+                    <div className="mt-8 flex gap-4">
+                      <Button asChild size="lg">
+                        <Link href={item.href}>
+                          {item.buttonText} <ArrowRight className="ml-2" />
+                        </Link>
+                      </Button>
+                    </div>
+                  </div>
+                </div>
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity" />
+          <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity" />
+        </Carousel>
       </section>
 
       {/* Featured Products */}
