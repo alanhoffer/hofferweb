@@ -150,6 +150,26 @@ export const allProducts: Product[] = [
         ],
         stock: 'low_stock'
     },
+     {
+        id: 'prod_8',
+        name: 'Ready-to-Use Queen Cells',
+        price: '$12.00',
+        priceValue: 12.00,
+        image: 'https://placehold.co/600x600.png',
+        category: 'Live Bees',
+        hint: 'queen cells beekeeping',
+        description: 'High-quality, viable queen cells ready for introduction into your nucleus or queenless colonies. A great way to requeen or make splits.',
+        features: [
+            "10-day old viable queen cells",
+            "From hygienic and productive mother queens",
+            "Shipped in temperature-controlled packaging",
+            "Instructions for introduction included"
+        ],
+        reviews: [
+             { rating: 5, author: "Breeder Joe", text: "Excellent hatch rate, fantastic service. Will buy again.", date: "2024-06-18" }
+        ],
+        stock: 'in_stock'
+    },
     {
         id: 'prod_6',
         name: '10-Frame Langstroth Hive',

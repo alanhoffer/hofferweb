@@ -9,10 +9,9 @@ import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
 
 export default function ShopPage() {
-  const [filter, setFilter] = useState('All'); // 'All', 'Normal', 'Live'
+  const [filter, setFilter] = useState('Normal'); // 'Normal', 'Live'
 
   const filteredProducts = allProducts.filter(product => {
-    if (filter === 'All') return true;
     if (filter === 'Live') return product.category === 'Live Bees';
     if (filter === 'Normal') return product.category === 'Honey' || product.category === 'Equipment';
     return true;
@@ -29,12 +28,6 @@ export default function ShopPage() {
       
       <div className="mb-8 flex justify-center gap-4">
           <Button 
-            onClick={() => setFilter('All')}
-            variant={filter === 'All' ? 'default' : 'outline'}
-          >
-            All Products
-          </Button>
-          <Button 
             onClick={() => setFilter('Normal')}
             variant={filter === 'Normal' ? 'default' : 'outline'}
           >
@@ -44,7 +37,7 @@ export default function ShopPage() {
             onClick={() => setFilter('Live')}
             variant={filter === 'Live' ? 'default' : 'outline'}
           >
-            Live Products
+            Queen Cells
           </Button>
       </div>
 
