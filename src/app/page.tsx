@@ -60,6 +60,7 @@ export default function Home() {
       title: latestProduct.name,
       description: latestProduct.description,
       image: latestProduct.image,
+      video: 'https://videos.pexels.com/video-files/2484749/2484749-hd_1920_1080_25fps.mp4',
       hint: latestProduct.hint,
       href: `/shop/${latestProduct.id}`,
       buttonText: 'View Product',
@@ -69,6 +70,7 @@ export default function Home() {
       title: latestCourse.title,
       description: latestCourse.description,
       image: latestCourse.image,
+      video: 'https://videos.pexels.com/video-files/4772877/4772877-hd_1920_1080_25fps.mp4',
       hint: latestCourse.hint,
       href: `/courses/${latestCourse.id}`,
       buttonText: 'Start Learning',
@@ -78,6 +80,7 @@ export default function Home() {
       title: latestPost.title,
       description: latestPost.summary,
       image: latestPost.image,
+      video: 'https://videos.pexels.com/video-files/8000454/8000454-hd_1920_1080_24fps.mp4',
       hint: latestPost.hint,
       href: `/blog/${latestPost.slug}`,
       buttonText: 'Read More',
@@ -116,17 +119,16 @@ export default function Home() {
           <CarouselContent>
             {carouselItems.map((item, index) => (
               <CarouselItem key={index}>
-                <div className="relative w-full h-[60vh] md:h-[70vh]">
-                  <Image
-                    src={item.image}
-                    alt={item.title}
-                    layout="fill"
-                    objectFit="cover"
-                    className="opacity-40"
-                    data-ai-hint={item.hint}
-                    priority={index === 0}
+                <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
+                  <video
+                    src={item.video}
+                    className="absolute top-0 left-0 w-full h-full object-cover"
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                   />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-4 bg-black/30">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-4 bg-black/40">
                     <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">{item.type}</Badge>
                     <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
                       {item.title}
