@@ -4,9 +4,10 @@ import { useState } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { allProducts } from '@/lib/placeholder-data';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import { ShoppingCart } from 'lucide-react';
 
 export default function ShopPage() {
   const [filter, setFilter] = useState('Normal'); // 'Normal', 'Live'
@@ -41,33 +42,73 @@ export default function ShopPage() {
           </Button>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
+      <div className={cn(
+        "grid gap-8",
+        filter === 'Live' ? "grid-cols-1" : "grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4"
+      )}>
         {filteredProducts.map((product) => (
-          <Card key={product.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-            <Link href={`/shop/${product.id}`} className="block">
-                <Image
+          filter === 'Live' ? (
+            <Card key={product.id} className="w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-3">
+              <div className="grid md:grid-cols-3">
+                <div className="md:col-span-1">
+                   <Image
                     src={product.image}
                     alt={product.name}
                     width={600}
                     height={600}
-                    className="w-full h-64 object-cover"
+                    className="w-full h-full object-cover"
                     data-ai-hint={product.hint}
-                />
-            </Link>
-            <CardHeader className="flex-grow">
-              <CardTitle className="text-lg leading-snug">
-                <Link href={`/shop/${product.id}`} className="hover:text-primary transition-colors">{product.name}</Link>
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-                <p className="text-lg font-bold text-primary">{product.price}</p>
-            </CardContent>
-            <CardFooter>
-              <Button asChild className="w-full">
-                <Link href={`/shop/${product.id}`}>View Product</Link>
-              </Button>
-            </CardFooter>
-          </Card>
+                  />
+                </div>
+                <div className="md:col-span-2 flex flex-col">
+                  <CardHeader>
+                    <CardTitle className="text-2xl">{product.name}</CardTitle>
+                    <CardDescription className="text-muted-foreground">{product.description}</CardDescription>
+                  </CardHeader>
+                  <CardContent className="flex-grow space-y-4">
+                     <p className="text-3xl font-bold text-primary">{product.price}</p>
+                     <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                        {product.features.map((feature, i) => <li key={i}>{feature}</li>)}
+                     </ul>
+                  </CardContent>
+                  <CardFooter>
+                    <Button asChild className="w-full sm:w-auto" size="lg">
+                      <Link href={`/shop/${product.id}`}>
+                        <ShoppingCart className="mr-2" />
+                        View Details & Purchase
+                      </Link>
+                    </Button>
+                  </CardFooter>
+                </div>
+              </div>
+            </Card>
+          ) : (
+            <Card key={product.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
+              <Link href={`/shop/${product.id}`} className="block">
+                  <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={600}
+                      height={600}
+                      className="w-full h-64 object-cover"
+                      data-ai-hint={product.hint}
+                  />
+              </Link>
+              <CardHeader className="flex-grow">
+                <CardTitle className="text-lg leading-snug">
+                  <Link href={`/shop/${product.id}`} className="hover:text-primary transition-colors">{product.name}</Link>
+                </CardTitle>
+              </CardHeader>
+              <CardContent>
+                  <p className="text-lg font-bold text-primary">{product.price}</p>
+              </CardContent>
+              <CardFooter>
+                <Button asChild className="w-full">
+                  <Link href={`/shop/${product.id}`}>View Product</Link>
+                </Button>
+              </CardFooter>
+            </Card>
+          )
         ))}
       </div>
     </div>
