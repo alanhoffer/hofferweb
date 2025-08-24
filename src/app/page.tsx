@@ -83,6 +83,27 @@ export default function Home() {
       buttonText: 'Read More',
     },
   ];
+  
+  const videos = [
+    {
+        src: "https://placehold.co/1280x720.png",
+        alt: "Beekeeping Story",
+        hint: "beekeeping video",
+        title: "Our Beekeeping Story",
+    },
+    {
+        src: "https://placehold.co/1280x720.png",
+        alt: "Honey Harvest",
+        hint: "honey harvest",
+        title: "The Sweet Harvest",
+    },
+    {
+        src: "https://placehold.co/1280x720.png",
+        alt: "Queen Rearing",
+        hint: "queen bee rearing",
+        title: "Rearing Strong Queens",
+    }
+  ];
 
   return (
     <div className="flex flex-col">
@@ -169,24 +190,44 @@ export default function Home() {
 
       {/* Video Section */}
       <section className="w-full py-16 md:py-24 bg-primary/5">
-        <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold font-headline mb-4">A Glimpse Into Our World</h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-            See our bees in action and learn what makes our apiary special. Watch our story.
-          </p>
-          <div className="aspect-video max-w-4xl mx-auto bg-black rounded-lg relative overflow-hidden shadow-2xl group">
-             <Image
-                src="https://placehold.co/1280x720.png"
-                alt="Video placeholder"
-                layout="fill"
-                objectFit="cover"
-                data-ai-hint="beekeeping video"
-                className="group-hover:scale-105 transition-transform duration-500"
-            />
-            <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
-            </div>
+        <div className="container mx-auto px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold font-headline mb-4">A Glimpse Into Our World</h2>
+            <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
+              See our bees in action and learn what makes our apiary special. Watch our story.
+            </p>
           </div>
+           <Carousel
+            opts={{
+              align: "start",
+            }}
+            className="w-full max-w-4xl mx-auto group"
+          >
+            <CarouselContent>
+              {videos.map((video, index) => (
+                <CarouselItem key={index}>
+                   <div className="aspect-video bg-black rounded-lg relative overflow-hidden shadow-2xl group">
+                     <Image
+                        src={video.src}
+                        alt={video.alt}
+                        layout="fill"
+                        objectFit="cover"
+                        data-ai-hint={video.hint}
+                        className="group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center bg-black/40">
+                        <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
+                    </div>
+                    <div className="absolute bottom-0 left-0 p-4">
+                        <h3 className="text-white font-bold text-lg drop-shadow-md">{video.title}</h3>
+                    </div>
+                  </div>
+                </CarouselItem>
+              ))}
+            </CarouselContent>
+            <CarouselPrevious className="absolute left-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity" />
+            <CarouselNext className="absolute right-4 top-1/2 -translate-y-1/2 z-20 opacity-0 group-hover:opacity-100 transition-opacity" />
+          </Carousel>
         </div>
       </section>
 
