@@ -6,17 +6,17 @@ import Link from 'next/link';
 import { allProducts } from '@/lib/placeholder-data';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
-
-const categories = ['All', 'Honey', 'Live Bees', 'Equipment'];
+import { cn } from '@/lib/utils';
 
 export default function ShopPage() {
-  const [filter, setFilter] = useState('All');
+  const [filter, setFilter] = useState('All'); // 'All', 'Normal', 'Live'
 
-  const filteredProducts = filter === 'All' 
-    ? allProducts 
-    : allProducts.filter(p => p.category === filter);
+  const filteredProducts = allProducts.filter(product => {
+    if (filter === 'All') return true;
+    if (filter === 'Live') return product.category === 'Live Bees';
+    if (filter === 'Normal') return product.category === 'Honey' || product.category === 'Equipment';
+    return true;
+  });
 
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
@@ -27,20 +27,25 @@ export default function ShopPage() {
         </p>
       </header>
       
-      <div className="mb-8 flex justify-center">
-        <div className="w-full max-w-xs">
-          <Label htmlFor="category-filter" className="sr-only">Filter by category</Label>
-          <Select onValueChange={setFilter} defaultValue="All">
-            <SelectTrigger id="category-filter">
-              <SelectValue placeholder="Filter by category..." />
-            </SelectTrigger>
-            <SelectContent>
-              {categories.map(category => (
-                <SelectItem key={category} value={category}>{category}</SelectItem>
-              ))}
-            </SelectContent>
-          </Select>
-        </div>
+      <div className="mb-8 flex justify-center gap-4">
+          <Button 
+            onClick={() => setFilter('All')}
+            variant={filter === 'All' ? 'default' : 'outline'}
+          >
+            All Products
+          </Button>
+          <Button 
+            onClick={() => setFilter('Normal')}
+            variant={filter === 'Normal' ? 'default' : 'outline'}
+          >
+            Normal Products
+          </Button>
+          <Button 
+            onClick={() => setFilter('Live')}
+            variant={filter === 'Live' ? 'default' : 'outline'}
+          >
+            Live Products
+          </Button>
       </div>
 
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
