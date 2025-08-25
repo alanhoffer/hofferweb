@@ -9,8 +9,8 @@ export default async function BeekeepingTip({ section, topic }: { section: strin
         const newTipData = await generateBeekeepingTip({ section, topic, style: 'informative' });
         return newTipData.tip;
     } catch (error) {
-        console.error("Error generating new tip:", error);
-        return "Sorry, we couldn't buzz up a new tip right now. Please try again later.";
+        console.error("Error al generar un nuevo consejo:", error);
+        return "Lo sentimos, no pudimos generar un nuevo consejo en este momento. Por favor, intentá nuevamente más tarde.";
     }
   }
   

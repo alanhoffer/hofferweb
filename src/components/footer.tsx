@@ -13,36 +13,36 @@ export default function Footer() {
           <div className="lg:col-span-2">
             <Logo />
             <p className="mt-4 text-muted-foreground max-w-sm">
-              Your partner in beekeeping success. Quality supplies, expert knowledge, and a sweet community.
+              Tu socio en el éxito de la apicultura. Suministros de calidad, conocimientos expertos y una comunidad dulce.
             </p>
           </div>
 
           <div>
-            <h3 className="font-bold font-headline">Quick Links</h3>
+            <h3 className="font-bold font-headline">Enlaces Rápidos</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/about" className="text-muted-foreground hover:text-primary">About Us</Link></li>
-              <li><Link href="/shop" className="text-muted-foreground hover:text-primary">Shop</Link></li>
-              <li><Link href="/courses" className="text-muted-foreground hover:text-primary">Courses</Link></li>
+              <li><Link href="/about" className="text-muted-foreground hover:text-primary">Sobre Nosotros</Link></li>
+              <li><Link href="/shop" className="text-muted-foreground hover:text-primary">Tienda</Link></li>
+              <li><Link href="/courses" className="text-muted-foreground hover:text-primary">Cursos</Link></li>
               <li><Link href="/blog" className="text-muted-foreground hover:text-primary">Blog</Link></li>
             </ul>
           </div>
 
           <div>
-            <h3 className="font-bold font-headline">Support</h3>
+            <h3 className="font-bold font-headline">Soporte</h3>
             <ul className="mt-4 space-y-2">
-              <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contact Us</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">FAQ</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Shipping & Returns</Link></li>
-              <li><Link href="#" className="text-muted-foreground hover:text-primary">Wholesale</Link></li>
+              <li><Link href="/contact" className="text-muted-foreground hover:text-primary">Contáctanos</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">Preguntas Frecuentes</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">Envíos y Devoluciones</Link></li>
+              <li><Link href="#" className="text-muted-foreground hover:text-primary">Venta al por Mayor</Link></li>
             </ul>
           </div>
 
           <div className="md:col-span-4 lg:col-span-1">
-            <h3 className="font-bold font-headline">Join our Newsletter</h3>
-            <p className="mt-2 text-muted-foreground text-sm">Get the latest buzz on products, tips, and sales.</p>
+            <h3 className="font-bold font-headline">Suscribite a nuestro Newsletter</h3>
+            <p className="mt-2 text-muted-foreground text-sm">Recibí lo último sobre productos, consejos y ofertas.</p>
             <form className="mt-4 flex gap-2">
-              <Input type="email" placeholder="Your email address" className="bg-background" />
-              <Button type="submit" className="bg-accent text-accent-foreground hover:bg-accent/90">Subscribe</Button>
+              <Input type="email" placeholder="Tu correo electrónico" className="bg-background" />
+              <Button type="submit" className="bg-accent text-accent-foreground hover:bg-accent/90">Suscribirse</Button>
             </form>
           </div>
         </div>
@@ -50,7 +50,7 @@ export default function Footer() {
         <Separator className="my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} BeeCommerce. All Rights Reserved.</p>
+          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} BeeCommerce. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <Link href="#" aria-label="Twitter"><Twitter className="h-5 w-5 text-muted-foreground hover:text-primary" /></Link>
             <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-primary" /></Link>

@@ -6,7 +6,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Lightbulb, RefreshCw } from 'lucide-react';
 
 export function BeekeepingTipClient({ getNewTip }: { getNewTip: () => Promise<string> }) {
-  const [tip, setTip] = useState('Loading your bee tip...');
+  const [tip, setTip] = useState('Cargando tu consejo apícola...');
   const [isPending, startTransition] = useTransition();
 
   const handleRefresh = () => {
@@ -25,15 +25,15 @@ export function BeekeepingTipClient({ getNewTip }: { getNewTip: () => Promise<st
       <CardHeader>
         <CardTitle className="flex items-center gap-2 font-headline">
           <Lightbulb className="text-primary h-6 w-6" />
-          <span>AI Beekeeping Tip</span>
+          <span>Consejo Apícola AI</span>
         </CardTitle>
-        <CardDescription>A helpful hint from our AI assistant</CardDescription>
+        <CardDescription>Un consejo útil de nuestro asistente de IA</CardDescription>
       </CardHeader>
       <CardContent>
         <p className="text-muted-foreground mb-4 min-h-[60px]">{tip}</p>
         <Button onClick={handleRefresh} disabled={isPending} size="sm" variant="secondary">
           <RefreshCw className={`mr-2 h-4 w-4 ${isPending ? 'animate-spin' : ''}`} />
-          {isPending ? 'Generating...' : 'Get another tip'}
+          {isPending ? 'Generando...' : 'Obtener otro consejo'}
         </Button>
       </CardContent>
     </Card>
