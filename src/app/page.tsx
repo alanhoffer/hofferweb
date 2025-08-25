@@ -121,14 +121,14 @@ export default function Home() {
               <CarouselItem key={index}>
                 <div className="relative w-full h-[60vh] md:h-[70vh] overflow-hidden">
                   <video
-                    src={item.video}
+                    src='/media/hero-video.MP4'
                     className="absolute top-0 left-0 w-full h-full object-cover"
                     autoPlay
                     loop
                     muted
                     playsInline
                   />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 bg-black/50">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 bg-black/60">
                     <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">{item.type}</Badge>
                     <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
                       {item.title}
