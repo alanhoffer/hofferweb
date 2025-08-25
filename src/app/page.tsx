@@ -128,7 +128,7 @@ export default function Home() {
                     muted
                     playsInline
                   />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-primary-foreground p-4 bg-black/40">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 bg-black/50">
                     <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">{item.type}</Badge>
                     <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
                       {item.title}
