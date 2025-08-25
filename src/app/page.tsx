@@ -86,25 +86,25 @@ export default function Home() {
       buttonText: 'Read More',
     },
   ];
-  
+
   const videos = [
     {
-        src: "https://placehold.co/1280x720.png",
-        alt: "Beekeeping Story",
-        hint: "beekeeping video",
-        title: "Our Beekeeping Story",
+      src: "https://placehold.co/1280x720.png",
+      alt: "Beekeeping Story",
+      hint: "beekeeping video",
+      title: "Our Beekeeping Story",
     },
     {
-        src: "https://placehold.co/1280x720.png",
-        alt: "Honey Harvest",
-        hint: "honey harvest",
-        title: "The Sweet Harvest",
+      src: "https://placehold.co/1280x720.png",
+      alt: "Honey Harvest",
+      hint: "honey harvest",
+      title: "The Sweet Harvest",
     },
     {
-        src: "https://placehold.co/1280x720.png",
-        alt: "Queen Rearing",
-        hint: "queen bee rearing",
-        title: "Rearing Strong Queens",
+      src: "https://placehold.co/1280x720.png",
+      alt: "Queen Rearing",
+      hint: "queen bee rearing",
+      title: "Rearing Strong Queens",
     }
   ];
 
@@ -128,7 +128,7 @@ export default function Home() {
                     muted
                     playsInline
                   />
-                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 bg-black/60">
+                  <div className="relative z-10 flex flex-col items-center justify-center h-full text-center text-white p-4 bg-black/80">
                     <Badge variant="secondary" className="mb-4 bg-accent text-accent-foreground">{item.type}</Badge>
                     <h1 className="text-4xl md:text-6xl font-headline font-bold drop-shadow-lg">
                       {item.title}
@@ -159,32 +159,38 @@ export default function Home() {
           <h2 className="text-3xl font-bold text-center mb-12 font-headline">Featured Products</h2>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {featuredProducts.map((product) => (
-              <Card key={product.id} className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col">
-                <CardHeader className="p-0">
+              <Card
+                key={product.id}
+                className="overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 flex flex-col"
+              >
+                <CardHeader className="flex justify-center items-center h-64 p-10">
                   <Image
                     src={product.image}
                     alt={product.name}
-                    width={600}
-                    height={600}
-                    className="w-full h-64 object-cover"
+                    width={100}
+                    height={200}
+                    className="max-h-full max-w-full rounded-lg"
                     data-ai-hint={product.hint}
                   />
                 </CardHeader>
-                <CardContent className="pt-6 flex-grow">
+
+                <CardContent className="pt-6 pl-6 flex-grow">
                   <h3 className="text-xl font-bold">{product.name}</h3>
                   <p className="text-lg font-semibold text-primary mt-2">{product.price}</p>
                 </CardContent>
+
                 <CardFooter>
                   <Button asChild className="w-full">
                     <Link href={`/shop/${product.id}`}>View Product</Link>
                   </Button>
                 </CardFooter>
               </Card>
+
             ))}
           </div>
           <div className="text-center mt-12">
             <Button asChild variant="link" className="text-lg">
-                <Link href="/shop">Explore All Products <ArrowRight className="ml-2" /></Link>
+              <Link href="/shop">Explore All Products <ArrowRight className="ml-2" /></Link>
             </Button>
           </div>
         </div>
@@ -199,7 +205,7 @@ export default function Home() {
               See our bees in action and learn what makes our apiary special. Watch our story.
             </p>
           </div>
-           <Carousel
+          <Carousel
             opts={{
               align: "start",
             }}
@@ -208,20 +214,20 @@ export default function Home() {
             <CarouselContent>
               {videos.map((video, index) => (
                 <CarouselItem key={index}>
-                   <div className="aspect-video bg-black rounded-lg relative overflow-hidden shadow-2xl group">
-                     <Image
-                        src={video.src}
-                        alt={video.alt}
-                        layout="fill"
-                        objectFit="cover"
-                        data-ai-hint={video.hint}
-                        className="group-hover:scale-105 transition-transform duration-500"
+                  <div className="aspect-video bg-black rounded-lg relative overflow-hidden shadow-2xl group">
+                    <Image
+                      src={video.src}
+                      alt={video.alt}
+                      layout="fill"
+                      objectFit="cover"
+                      data-ai-hint={video.hint}
+                      className="group-hover:scale-105 transition-transform duration-500"
                     />
                     <div className="absolute inset-0 flex items-center justify-center bg-black/40">
-                        <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
+                      <PlayCircle className="h-20 w-20 text-white/70 group-hover:text-white transition-colors" />
                     </div>
                     <div className="absolute bottom-0 left-0 p-4">
-                        <h3 className="text-white font-bold text-lg drop-shadow-md">{video.title}</h3>
+                      <h3 className="text-white font-bold text-lg drop-shadow-md">{video.title}</h3>
                     </div>
                   </div>
                 </CarouselItem>
@@ -269,14 +275,14 @@ export default function Home() {
             <BeekeepingTip section="Home Page" topic="General Beekeeping" />
           </div>
           <div className="w-full md:w-1/2">
-             <Image
-                src="https://placehold.co/600x400.png"
-                alt="Stylized graphic of a bee and a microchip"
-                width={600}
-                height={400}
-                className="rounded-lg shadow-lg"
-                data-ai-hint="bee microchip"
-             />
+            <Image
+              src="https://placehold.co/600x400.png"
+              alt="Stylized graphic of a bee and a microchip"
+              width={600}
+              height={400}
+              className="rounded-lg shadow-lg"
+              data-ai-hint="bee microchip"
+            />
           </div>
         </div>
       </section>

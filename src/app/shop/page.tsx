@@ -26,20 +26,20 @@ export default function ShopPage() {
           Everything you need for a thriving hive, from sweet honey to essential gear.
         </p>
       </header>
-      
+
       <div className="mb-8 flex justify-center gap-4">
-          <Button 
-            onClick={() => setFilter('Normal')}
-            variant={filter === 'Normal' ? 'default' : 'outline'}
-          >
-            Normal Products
-          </Button>
-          <Button 
-            onClick={() => setFilter('Live')}
-            variant={filter === 'Live' ? 'default' : 'outline'}
-          >
-            Queen Cells
-          </Button>
+        <Button
+          onClick={() => setFilter('Normal')}
+          variant={filter === 'Normal' ? 'default' : 'outline'}
+        >
+          Normal Products
+        </Button>
+        <Button
+          onClick={() => setFilter('Live')}
+          variant={filter === 'Live' ? 'default' : 'outline'}
+        >
+          Queen Cells
+        </Button>
       </div>
 
       <div className={cn(
@@ -51,14 +51,17 @@ export default function ShopPage() {
             <Card key={product.id} className="w-full overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300 md:col-span-2 lg:col-span-3">
               <div className="grid md:grid-cols-3">
                 <div className="md:col-span-1">
-                   <Image
-                    src={product.image}
-                    alt={product.name}
-                    width={600}
-                    height={600}
-                    className="w-full h-full object-cover"
-                    data-ai-hint={product.hint}
-                  />
+                  <div className="w-full h-full">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      width={600}
+                      height={600}
+                      className="w-full h-full object-cover"
+                      style={{ aspectRatio: '1 / 1' }} // Mantiene proporción si quieres cuadrada
+                      data-ai-hint={product.hint}
+                    />
+                  </div>
                 </div>
                 <div className="md:col-span-2 flex flex-col">
                   <CardHeader>
@@ -66,10 +69,10 @@ export default function ShopPage() {
                     <CardDescription className="text-muted-foreground">{product.description}</CardDescription>
                   </CardHeader>
                   <CardContent className="flex-grow space-y-4">
-                     <p className="text-3xl font-bold text-primary">{product.price}</p>
-                     <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
-                        {product.features.map((feature, i) => <li key={i}>{feature}</li>)}
-                     </ul>
+                    <p className="text-3xl font-bold text-primary">{product.price}</p>
+                    <ul className="text-sm text-muted-foreground list-disc list-inside space-y-1">
+                      {product.features.map((feature, i) => <li key={i}>{feature}</li>)}
+                    </ul>
                   </CardContent>
                   <CardFooter>
                     <Button asChild className="w-full sm:w-auto" size="lg">
@@ -82,17 +85,18 @@ export default function ShopPage() {
                 </div>
               </div>
             </Card>
+
           ) : (
             <Card key={product.id} className="flex flex-col overflow-hidden shadow-lg hover:shadow-xl transition-shadow duration-300">
-              <Link href={`/shop/${product.id}`} className="block">
-                  <Image
-                      src={product.image}
-                      alt={product.name}
-                      width={600}
-                      height={600}
-                      className="w-full h-64 object-cover"
-                      data-ai-hint={product.hint}
-                  />
+              <Link href={`/shop/${product.id}`} className="block flex justify-center items-center h-48 p-5">
+                <Image
+                  src={product.image}
+                  alt={product.name}
+                  width={80}
+                  height={50}
+                  className="max-h-full max-w-full rounded-lg"
+                  data-ai-hint={product.hint}
+                />
               </Link>
               <CardHeader className="flex-grow">
                 <CardTitle className="text-lg leading-snug">
@@ -100,7 +104,7 @@ export default function ShopPage() {
                 </CardTitle>
               </CardHeader>
               <CardContent>
-                  <p className="text-lg font-bold text-primary">{product.price}</p>
+                <p className="text-lg font-bold text-primary">{product.price}</p>
               </CardContent>
               <CardFooter>
                 <Button asChild className="w-full">
