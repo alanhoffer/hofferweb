@@ -207,19 +207,19 @@ export const featuredProducts = allProducts.slice(0, 3);
 
 export const testimonials = [
   {
-    name: 'Jane D.',
+    name: 'Agustin F.',
     quote: "¡La mejor miel que he probado! La reina llegó saludable y está haciendo un gran trabajo. Recomiendo BeeCommerce totalmente.",
     avatar: 'https://placehold.co/100x100.png',
     hint: 'retrato de mujer',
   },
   {
-    name: 'Mark S.',
+    name: 'Juan S.',
     quote: "Mi recurso principal para todo en apicultura. El kit de inicio tenía todo lo que necesitaba. Calidad fantástica!",
     avatar: 'https://placehold.co/100x100.png',
     hint: 'retrato de hombre',
   },
   {
-    name: 'Clara B.',
+    name: 'Roberto F.',
     quote: 'El curso "Apicultura para Principiantes" fue muy informativo. El instructor fue claro y los videos de alta calidad.',
     avatar: 'https://placehold.co/100x100.png',
     hint: 'retrato de mujer sonriendo',

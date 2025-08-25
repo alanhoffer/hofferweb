@@ -36,7 +36,7 @@ export default function Logo({ className }: { className?: string }) {
       <div className="p-1 bg-primary rounded-md">
         <BeeIcon className="h-6 w-6 text-primary-foreground" />
       </div>
-      <span>BeeCommerce</span>
+      <span>Cabaña Hoffer</span>
     </Link>
   );
 }
