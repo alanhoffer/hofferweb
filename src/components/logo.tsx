@@ -8,10 +8,11 @@ export default function Logo({ className }: { className?: string }) {
       <Image 
         src="https://i.ibb.co/KzXv2TkY/Component-1.png"
         alt="Cabaña Hoffer Logo"
-        width={140}
+        width={40}
         height={40}
         className="h-10 w-auto"
       />
+      <span className="font-bold font-headline text-lg">Cabaña Hoffer</span>
     </Link>
   );
 }
