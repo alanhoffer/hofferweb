@@ -41,7 +41,7 @@ export default function MyOrdersPage() {
       <Card>
         <CardHeader>
           <CardTitle>Order History</CardTitle>
-          <CardDescription>A list of your past purchases from BeeCommerce.</CardDescription>
+          <CardDescription>A list of your past purchases from Cabaña Hoffer.</CardDescription>
         </CardHeader>
         <CardContent>
           <Accordion type="single" collapsible className="w-full">

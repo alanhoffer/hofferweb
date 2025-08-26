@@ -30,7 +30,7 @@ export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">About BeeCommerce</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">About Cabaña Hoffer</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
           Discover the passion, people, and purpose behind our hive.
         </p>
@@ -41,16 +41,16 @@ export default function AboutPage() {
           <div>
             <h2 className="text-3xl font-bold font-headline mb-4">Our Story</h2>
             <p className="text-muted-foreground mb-4">
-              BeeCommerce started not as a business, but as a backyard hobby. Our founder, an avid gardener, became fascinated with the vital role bees play in our ecosystem. What began with a single hive soon blossomed into a full-blown passion for apiculture and a desire to share the joy and wonder of beekeeping with others.
+              Cabaña Hoffer started not as a business, but as a backyard hobby. Our founder, an avid gardener, became fascinated with the vital role bees play in our ecosystem. What began with a single hive soon blossomed into a full-blown passion for apiculture and a desire to share the joy and wonder of beekeeping with others.
             </p>
             <p className="text-muted-foreground">
-              We realized there was a need for accessible, high-quality beekeeping supplies and, more importantly, reliable education. That’s when BeeCommerce was born—to support aspiring and experienced beekeepers alike on their journey, providing the tools and knowledge to help their colonies thrive.
+              We realized there was a need for accessible, high-quality beekeeping supplies and, more importantly, reliable education. That’s when Cabaña Hoffer was born—to support aspiring and experienced beekeepers alike on their journey, providing the tools and knowledge to help their colonies thrive.
             </p>
           </div>
           <div>
             <Image
               src="https://placehold.co/600x400.png"
-              alt="The founding team of BeeCommerce smiling in an apiary"
+              alt="The founding team of Cabaña Hoffer smiling in an apiary"
               width={600}
               height={400}
               className="rounded-lg shadow-lg"
@@ -96,7 +96,7 @@ export default function AboutPage() {
         <div className="text-center">
             <h2 className="text-3xl font-bold font-headline mb-4">Meet the Team</h2>
             <p className="text-muted-foreground max-w-2xl mx-auto mb-8">
-              We're a small team with a big love for bees. Get to know the faces behind BeeCommerce.
+              We're a small team with a big love for bees. Get to know the faces behind Cabaña Hoffer.
             </p>
             <div className="flex justify-center flex-wrap gap-8">
                 <div className="flex flex-col items-center">

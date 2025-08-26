@@ -6,7 +6,7 @@ import Header from '@/components/header';
 import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
-  title: 'BeeCommerce - Your Beekeeping Partner',
+  title: 'Cabaña Hoffer - Your Beekeeping Partner',
   description: 'Shop for beekeeping supplies, take online courses, and read our blog.',
 };
 

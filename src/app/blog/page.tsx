@@ -10,7 +10,7 @@ export default function BlogPage() {
   return (
     <div className="container mx-auto px-4 py-12 md:py-16">
       <header className="text-center mb-12">
-        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">The BeeCommerce Blog</h1>
+        <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">The Cabaña Hoffer Blog</h1>
         <p className="mt-4 text-lg text-muted-foreground max-w-3xl mx-auto">
           Your source for beekeeping tips, news, and stories from the hive.
         </p>

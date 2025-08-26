@@ -50,7 +50,7 @@ export default function Footer() {
         <Separator className="my-8" />
 
         <div className="flex flex-col md:flex-row justify-between items-center text-center md:text-left gap-4">
-          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} BeeCommerce. Todos los derechos reservados.</p>
+          <p className="text-sm text-muted-foreground">&copy; {new Date().getFullYear()} Cabaña Hoffer. Todos los derechos reservados.</p>
           <div className="flex gap-4">
             <Link href="#" aria-label="Twitter"><Twitter className="h-5 w-5 text-muted-foreground hover:text-primary" /></Link>
             <Link href="#" aria-label="Facebook"><Facebook className="h-5 w-5 text-muted-foreground hover:text-primary" /></Link>
