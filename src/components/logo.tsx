@@ -4,12 +4,13 @@ import { cn } from '@/lib/utils';
 
 export default function Logo({ className }: { className?: string }) {
   return (
-    <Link href="/" className={cn("flex items-center gap-2 text-xl font-bold font-headline", className)}>
+    <Link href="/" className={cn("flex items-center gap-2", className)}>
       <Image 
-        src="https://i.ibb.co/8nD43pKZ/20240119-113828.jpg"
+        src="https://i.ibb.co/KzXv2TkY/Component-1.png"
         alt="Cabaña Hoffer Logo"
         width={140}
         height={40}
+        className="h-10 w-auto"
       />
     </Link>
   );
