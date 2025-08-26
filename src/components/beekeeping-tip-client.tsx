@@ -17,7 +17,10 @@ export function BeekeepingTipClient({ getNewTip }: { getNewTip: () => Promise<st
   };
 
   useEffect(() => {
-    handleRefresh();
+    if (tip === 'Cargando tu consejo apícola...') {
+      handleRefresh();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
