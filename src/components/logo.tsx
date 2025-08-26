@@ -12,7 +12,7 @@ export default function Logo({ className }: { className?: string }) {
         height={40}
         className="h-10 w-auto"
       />
-      <span className="font-bold font-headline text-lg">Cabaña Hoffer</span>
+      <span className="font-bold font-headline text-2xl">Cabaña Hoffer</span>
     </Link>
   );
 }
